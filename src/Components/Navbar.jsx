@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav className="bg-orange-200 shadow-md py-3 px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col sm:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-3 sm:mb-0">
                 <img
-                    src="/logo.webp"
+                    src="../../public/logo.webp"
                     alt="Logo"
                     className="w-10 h-10 object-contain rounded-full"
                 />
