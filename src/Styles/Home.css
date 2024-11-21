@@ -1,0 +1,30 @@
+#home {
+    box-shadow: 7px 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    animation: change 2s ease-in forwards;
+}
+
+#container-home {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+@keyframes change {
+    0% {
+        height: 20%;
+        opacity: 0;
+        backdrop-filter: blur(15px) brightness(0.5) saturate(0.7);
+    }
+    100% {
+        height: 100%;
+        opacity: 1;
+        backdrop-filter: blur(15px) brightness(1) saturate(0.7);
+    }
+}
