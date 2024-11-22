@@ -2,13 +2,13 @@ import React, { useState, useRef } from "react";
 import ItemCard from "./ItemCard";
 
 const CarouselComponent = ({ items }) => {
-    const [active, setActive] = useState(2);
-    const carouselRef = useRef(null);
+    const [active, setActive] = useState(2); // Active item index
+    const carouselRef = useRef(null); // Reference to the carousel container
 
-    const itemsPerWindow = 5;
+    const itemsPerWindow = 5; // Number of items visible in the carousel window
 
+    // Move to the previous item
     const moveLeft = () => {
-
         setActive((prev) => {
             const nextActive = prev - 1 < 0 ? items.length - 1 : prev - 1;
             scrollToItem(nextActive);
@@ -16,8 +16,8 @@ const CarouselComponent = ({ items }) => {
         });
     };
 
+    // Move to the next item
     const moveRight = () => {
-
         setActive((prev) => {
             const nextActive = (prev + 1) % items.length;
             scrollToItem(nextActive);
@@ -25,9 +25,9 @@ const CarouselComponent = ({ items }) => {
         });
     };
 
+    // Scroll to the specific item index
     const scrollToItem = (index) => {
-
-        const itemWidth = 250;
+        const itemWidth = 250; // Width of each item
         const offset = itemWidth * index;
         carouselRef.current.scrollTo({
             left: offset - (itemWidth * Math.floor(itemsPerWindow / 2)),
@@ -35,10 +35,11 @@ const CarouselComponent = ({ items }) => {
         });
     };
 
+    // Generate carousel items
     const generateItems = () => {
         return items.map((item, index) => {
             const position = index - active;
-            const isCenter = position === 0;
+            const isCenter = position === 0; // Check if item is in the center
 
             return (
                 <div
@@ -48,7 +49,6 @@ const CarouselComponent = ({ items }) => {
                             : `scale-90 opacity-80 translate-x-[-${Math.abs(position)}00px] z-9`
                         }`}
                     style={{
-
                         width: isCenter ? "300px" : "250px",
                         height: isCenter ? "500px" : "400px",
                     }}
@@ -64,7 +64,7 @@ const CarouselComponent = ({ items }) => {
             <button
                 className="absolute w-[40px] h-[40px] bg-white text-teal-700 text-center opacity-70 rounded-full cursor-pointer top-[50%] left-[5%] text-[25px] z-10 transform -translate-y-1/2 hover:opacity-100 transition-opacity"
                 onClick={moveLeft}
-            >
+            >  {/* Left arrow button */}
                 &lt;
             </button>
 
@@ -79,7 +79,7 @@ const CarouselComponent = ({ items }) => {
             <button
                 className="absolute w-[40px] h-[40px] bg-white text-teal-700 text-center opacity-70 rounded-full cursor-pointer top-[50%] right-[5%] text-[25px] z-10 transform -translate-y-1/2 hover:opacity-100 transition-opacity"
                 onClick={moveRight}
-            >
+            >  {/* Right arrow button */}
                 &gt;
             </button>
         </div>

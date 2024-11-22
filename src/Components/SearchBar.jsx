@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
-    const [value, setValue] = useState("");
-    const navigate = useNavigate();
+    const [value, setValue] = useState(""); // State to store the input value
+    const navigate = useNavigate(); // Hook to navigate with React Router
 
+    // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (value.trim() === "") return;
-        navigate(`/options/${value}`);
+        if (value.trim() === "") return; // Do nothing if input is empty
+        navigate(`/options/${value}`); // Navigate to options page with input value
     };
 
     return (
@@ -21,7 +22,7 @@ const SearchBar = () => {
                     type="text"
                     placeholder="Search an ingredient..."
                     value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    onChange={(e) => setValue(e.target.value)} // Update state on input change
                     className="w-full sm:flex-1 px-4 py-2 text-gray-700 focus:outline-none"
                     autoFocus
                 />

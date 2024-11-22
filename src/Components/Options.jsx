@@ -9,6 +9,7 @@ const Options = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // Fetch meal options for the given ingredient
     useEffect(() => {
         async function fetchData() {
             try {
@@ -17,7 +18,7 @@ const Options = () => {
                 if (data.meals) {
                     setOptions(data.meals);
                 } else {
-                    setError("Please enter a valid ingredient.");
+                    setError("Please enter a valid ingredient.");  // If {"meals":null}
                 }
             } catch (err) {
                 setError("Failed to fetch data.");
@@ -31,7 +32,7 @@ const Options = () => {
 
     return (
         <div id='options'>
-            {loading ? <p className='text-center text-lg font-bold'>Loading...</p> :
+            {loading ? <p className='text-center text-lg font-bold'>Loading...</p> : {/*Loader while fetching data*/}
             (error ? (
                 <p className='text-center text-lg font-bold text-cyan-500'>{error}</p>
             ) : (
