@@ -32,7 +32,7 @@ const Options = () => {
 
     return (
         <div id='options'>
-            {loading ? <p className='text-center text-lg font-bold'>Loading...</p> : {/*Loader while fetching data*/}
+            {loading ? <p className='text-center text-lg font-bold'>Loading...</p> : 
             (error ? (
                 <p className='text-center text-lg font-bold text-cyan-500'>{error}</p>
             ) : (

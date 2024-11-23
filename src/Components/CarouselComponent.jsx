@@ -27,7 +27,7 @@ const CarouselComponent = ({ items }) => {
 
     // Scroll to the specific item index
     const scrollToItem = (index) => {
-        const itemWidth = 250; // Width of each item
+        const itemWidth = 265; // Width of each item
         const offset = itemWidth * index;
         carouselRef.current.scrollTo({
             left: offset - (itemWidth * Math.floor(itemsPerWindow / 2)),
